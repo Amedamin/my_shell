@@ -13,6 +13,7 @@ char **str_tok(char *in, char separator, size_t *no_of_words)
 	int wordIndex = 0;
 	*no_of_words = 1;
 	char str[1024];
+
 	_strcpy(str, in);
 
 	char *wordStart = str;
@@ -27,6 +28,7 @@ char **str_tok(char *in, char separator, size_t *no_of_words)
 	}
 
 	char **command_array = malloc(*no_of_words * sizeof(char *));
+
 	if (command_array == NULL)
 	{
 		perror("Error (malloc)");
@@ -60,27 +62,4 @@ if (!in)
 command_array[wordIndex] = wordStart;
 
 return (command_array);
-}
-
-/**
- * char *_strcpy - a function that copies the string pointed to by src
- * @dest: copy to
- * @src: copy from
- * Return: string
- */
-char *_strcpy(char *dest, char *src)
-{
-	int l = 0;
-	int x = 0;
-
-	while (*(src + l) != '\0')
-	{
-		l++;
-	}
-	for ( ; x < l ; x++)
-	{
-		dest[x] = src[x];
-	}
-	dest[l] = '\0';
-	return (dest);
 }
